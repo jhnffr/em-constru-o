@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9 Meses Construindo Nosso Lar 💜</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#f8efff,#efe2ff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    overflow:hidden;
+}
+
+/* CORAÇÕES */
+
+#hearts-container{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    color:#c77dff;
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+
+    from{
+        transform:translateY(100vh) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    to{
+        transform:translateY(-100px) scale(1.3);
+        opacity:0;
+    }
+}
+
+/* CARD */
+
+.container{
+    position:relative;
+    z-index:2;
+
+    background:white;
+    max-width:750px;
+    width:100%;
+    padding:40px;
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 50px rgba(122,61,184,.15);
+}
+
+h2{
+    color:#7a3db8;
+    margin-bottom:25px;
+}
+
+p{
+    font-size:1.15rem;
+    line-height:1.9;
+    color:#444;
+    min-height:180px;
+}
+
+button{
+
+    background:#7a3db8;
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#8d55cb;
+}
+
+.bricks{
+    margin-top:25px;
+    font-size:2rem;
+    letter-spacing:6px;
+}
+
+.house{
+    font-size:5rem;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.12);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.love{
+
+    color:#7a3db8;
+
+    font-size:2rem;
+
+    font-weight:bold;
+
+    text-shadow:
+    0 0 10px #c77dff,
+    0 0 20px #c77dff;
+
+    animation:pulse 1.5s infinite;
+}
+
+.fade{
+    animation:fade .8s ease;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:600px){
+
+    .container{
+        padding:25px;
+    }
+
+    p{
+        font-size:1rem;
+    }
+
+    .love{
+        font-size:1.6rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts-container"></div>
+
+<div class="container">
+
+    <div id="content"></div>
+
+    <div class="bricks" id="bricks"></div>
+
+</div>
+
+<script>
+
+const etapas = [
+
+{
+titulo:"🏠 9 Meses Construindo Nosso Lar",
+texto:`Algumas pessoas levam anos para encontrar um lar.
+Nós levamos alguns meses para descobrir que nem sempre lar é um lugar.
+As vezes ele são pessoas. 
+E você é o meu lar, Júnior. 💜`,
+botao:"Começar"
+},
+
+{
+titulo:"🧱 MÊS 1",
+texto:`Tudo começou com uma conversa.
+Naquele momento eu não fazia ideia do quanto você se tornaria importante para mim.
+Mas, sem perceber, já tinhamos começado a construir nosso futuro.`,
+botao:"Adicionar primeiro tijolo"
+},
+
+{
+titulo:"🧱 MÊS 2",
+texto:`Aos poucos, conversar com você virou a melhor parte do meu dia.
+E o que parecia simples começou a se tornar meu refúgio.`,
+botao:"Próximo"
+},
+
+{
+titulo:"🧱 MÊS 3",
+texto:`Foi quando percebi que você não era apenas alguém.
+Você estava se tornando o meu lugar seguro.`,
+botao:"Próximo"
+},
+
+{
+titulo:"🧱 MÊS 4",
+texto:`Entre risadas, mensagens e momentos compartilhados...
+Nossa história continuava crescendo.`,
+botao:"Próximo"
+},
+
+{
+titulo:"🧱 MÊS 5",
+texto:`Nem todos os dias foram perfeitos.
+Mas em todos eles eu continuava escolhendo você.`,
+botao:"Próximo"
+},
+
+{
+titulo:"🧱 MÊS 6",
+texto:`E então vieram os sonhos.
+Pequenos planos.
+Grandes planos.
+Nosso futuro.`,
+botao:"Próximo"
+},
+
+{
+titulo:"🧱 MÊS 7",
+texto:`Aos poucos, imaginar você ao meu lado começou a ser algo natural.
+Como se sempre tivesse sido assim.`,
+botao:"Próximo"
+},
+
+{
+titulo:"🧱 MÊS 8",
+texto:`O sentimento segue cada vez mais forte...
+Você continuou sendo tudo que eu preciso.`,
+botao:"Próximo"
+},
+
+{
+titulo:"🏡 MÊS 9",
+texto:`Nove meses depois...
+Ainda não temos todas as respostas.
+Ainda não realizamos todos os sonhos.
+Ainda não chegamos onde queremos chegar.
+Mas já construímos tanta coisa, juntos.
+Nós.`,
+botao:"Finalizar construção"
+},
+
+{
+titulo:"Então... te entrego a 🔑",
+texto:`
+Chave entregue ao morador oficial do meu coração.
+Obrigada por cada conversa.
+Cada risada. Cada momento.
+Cada dia desses 9 meses.
+
+<span class="love">Eu te amo, meu Júnior 💜</span>`,
+botao:"Recomeçar"
+}
+
+];
+
+let atual = 0;
+
+function escreverTexto(elemento,texto,velocidade=35){
+
+    elemento.innerHTML="";
+
+    let i=0;
+
+    function digitar(){
+
+        if(i<texto.length){
+
+            if(texto.charAt(i)==="\n"){
+                elemento.innerHTML += "<br>";
+            }else{
+                elemento.innerHTML += texto.charAt(i);
+            }
+
+            i++;
+
+            setTimeout(digitar,velocidade);
+        }
+    }
+
+    digitar();
+}
+
+function mostrarEtapa(){
+
+    const etapa = etapas[atual];
+
+    let textoFinal = etapa.texto;
+
+    if(atual === 10){
+
+        document.getElementById("content").innerHTML = `
+            <h2>${etapa.titulo}</h2>
+
+            <div class="house">🏡</div>
+
+            <p id="texto"></p>
+
+            <button id="btn"
+            style="display:none"
+            onclick="proximaEtapa()">
+            ${etapa.botao}
+            </button>
+        `;
+
+    }else{
+
+        document.getElementById("content").innerHTML = `
+            <h2>${etapa.titulo}</h2>
+
+            <p id="texto"></p>
+
+            <button id="btn"
+            style="display:none"
+            onclick="proximaEtapa()">
+            ${etapa.botao}
+            </button>
+        `;
+    }
+
+    const textoElemento =
+        document.getElementById("texto");
+
+    escreverTexto(textoElemento,textoFinal);
+
+    const tempo =
+        textoFinal.length * 35 + 500;
+
+    setTimeout(()=>{
+
+    if(atual === 10){
+
+        textoElemento.innerHTML =
+            textoFinal.replace(/\n/g,"<br>");
+
+    }
+
+    document.getElementById("btn").style.display = "inline-block";
+
+}, tempo);
+    if(atual>=1 && atual<=9){
+        document.getElementById("bricks")
+        .innerHTML="🧱".repeat(atual);
+    }
+
+    if(atual===0){
+        document.getElementById("bricks")
+        .innerHTML="";
+    }
+}
+
+function proximaEtapa(){
+
+    if(atual === etapas.length-1){
+        atual = 0;
+    }else{
+        atual++;
+    }
+
+    mostrarEtapa();
+}
+
+/* CORAÇÕES */
+
+function criarCoracao(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML =
+    Math.random() > 0.5 ? "💜" : "✨";
+
+    heart.style.left =
+    Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+    (15 + Math.random()*25)+"px";
+
+    heart.style.animationDuration =
+    (6 + Math.random()*8)+"s";
+
+    document
+    .getElementById("hearts-container")
+    .appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },14000);
+}
+
+setInterval(criarCoracao,400);
+
+mostrarEtapa();
+
+</script>
+
+</body>
+</html>
